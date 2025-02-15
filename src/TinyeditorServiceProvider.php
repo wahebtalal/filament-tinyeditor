@@ -64,9 +64,9 @@ class TinyeditorServiceProvider extends PackageServiceProvider
         }
 
         FilamentAsset::register([
-            Css::make('tiny-css', __DIR__ . '/../resources/css/style.css'),
-            Js::make('tinymce', $mainJs),
-            AlpineComponent::make('tinyeditor', __DIR__ . '/../resources/dist/filament-tinymce-editor.js'),
+            Css::make('tiny-css', __DIR__ . '/../resources/css/style.css')->loadedOnRequest(),
+            Js::make('tinymce', $mainJs)->loadedOnRequest(),
+            AlpineComponent::make('tinyeditor', __DIR__ . '/../resources/dist/filament-tinymce-editor.js')->loadedOnRequest(),
             ...$languages,
         ], package: $this->getAssetPackageName());
     }
